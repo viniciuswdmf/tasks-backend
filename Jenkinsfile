@@ -28,8 +28,10 @@ pipeline {
         }
         stage ('API Test'){
             steps{
-                git 'https://github.com/viniciuswdmf/task-api-test'
-                bat 'mvn test'
+                dir('api-test'){
+                    git 'https://github.com/viniciuswdmf/task-api-test'
+                    bat 'mvn test'
+                }
             }
         }
     }
