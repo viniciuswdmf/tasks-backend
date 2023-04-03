@@ -43,6 +43,14 @@ pipeline {
                 }
             }
         }
+        stage ('Functional Tests'){
+            steps{
+                dir('functional-test'){
+                    git 'https://github.com/viniciuswdmf/tasks-functional-tests'
+                    bat 'mvn test'
+                }
+            }
+        }
     }
 }
 
